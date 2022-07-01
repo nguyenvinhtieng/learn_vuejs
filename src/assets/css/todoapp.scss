@@ -1,0 +1,128 @@
+.todoapp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    margin-top: 50px;
+    border: 2px solid #f1f1f1;
+    padding: 16px;
+    border-radius: 8px;
+}
+.head{
+    width: 500px;
+    display: flex;
+}
+.head input{
+    width: 100%;
+    border: none;
+    padding: 10px 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    outline: none;
+}
+.head button.disabled{
+    background-color: #ccc;;
+}
+.head button{
+    border: none;
+    padding: 10px 40px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    outline: none;
+    background-color: #0396ff;
+    color: white;
+    text-transform: uppercase;
+}
+.todolist{
+    max-height: 600px;
+    margin-top: 20px;
+    overflow-y: auto;
+}
+.todo{
+    display: flex;
+    padding: 4px 8px;
+    transition: all 0.2s linear;
+}
+.todo:hover{
+    background-color: rgba(115, 103, 240, 0.02);
+    cursor: pointer;
+    border-radius: 8px;
+}
+.todo .content{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.todo.done .content {
+    text-decoration: line-through;
+}
+.todo.done .btn-edit,
+.todo.done .btn-delete {
+    background-color: #999;
+}
+.todo .btn-delete{
+    background-color: #EA5456;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+.todo .btn-done{
+    background-color: #0396ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+.todo .btn-edit{
+    background-color: #28c76f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+.move{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.move .up, .move .down{
+    flex: 1;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    transition: all 0.2s linear;
+    background-color: white;
+}
+.move .up:hover, .move .down:hover{
+    background-color: rgb(234, 232, 232);
+}
+button{
+    cursor: pointer;
+}
+button:hover{
+    opacity: 0.8;
+}
+
+// transition
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}

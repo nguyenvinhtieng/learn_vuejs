@@ -1,0 +1,59 @@
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+h3 {
+  background: #09009f;
+  background: linear-gradient(to right, #b066fe 0%, #63e2ff 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+  border-image-source: linear-gradient(to right, #b066fe, #63e2ff);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: fit-content;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.loading {
+  box-sizing: border-box;
+  height: 20px;
+  margin-top: 20px;
+  padding: 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading .loading-main {
+  max-height: 100%;
+}
+.spinner {
+  width: 4.8px;
+  height: 4.8px;
+  border-radius: 4.8px;
+  box-shadow: 12px 0px 0 0 rgba(71, 75, 255, 0.2),
+    9.7px 7.1px 0 0 rgba(71, 75, 255, 0.4),
+    3.7199999999999998px 11.4px 0 0 rgba(71, 75, 255, 0.6),
+    -3.7199999999999998px 11.4px 0 0 rgba(71, 75, 255, 0.8),
+    -9.7px 7.1px 0 0 #474bff;
+  animation: spinner-b87k6z 0.8s infinite linear;
+}
+
+@keyframes spinner-b87k6z {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,23 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+header a{
+    margin: 0 8px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 1s linear;
+}
+header .router-link-active,
+header a:hover{
+    background: #09009f;
+    background: linear-gradient(to right, #09009f 0%, #00FF95 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
