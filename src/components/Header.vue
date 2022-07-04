@@ -4,6 +4,8 @@
     <router-link to="/todoapp"> Todo App </router-link>
     <router-link to="/password-validate"> Validate </router-link>
     <router-link to="/weather"> Weather </router-link>
+    <router-link to="/post"> Post </router-link>
+    <router-link to="/login"> Login </router-link>
   </header>
 </template>
 

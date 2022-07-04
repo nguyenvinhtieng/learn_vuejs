@@ -5,8 +5,12 @@
 </template>
 
 <script>
+import { store } from "../store.js";
 export default {
   name: "PageMain",
+  beforeMount() {
+    console.log("Main: ", store);
+  },
 };
 </script>
 <style>
