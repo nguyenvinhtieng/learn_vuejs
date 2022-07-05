@@ -6,6 +6,7 @@ import PagePasswordValidate from "./components/PagePasswordValidate.vue";
 import Weather from "./components/Weather.vue";
 import Post from "./components/Post.vue";
 import Login from "./components/PageLogin.vue";
+import News from "./components/PageNews.vue";
 
 export const routes = [
   {
@@ -58,6 +59,15 @@ export const routes = [
     },
   },
   {
+    path: "/news",
+    name: "news",
+    component: News,
+    meta: {
+      title: "News API",
+      authRequired: true,
+    },
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "not-found",
     component: Page404,
@@ -84,7 +94,6 @@ import { createToast } from "mosha-vue-toastify";
 import { store } from "./store.js";
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.authRequired)) {
-    // check login
     if (!localStorage.getItem(LOCAL_STORAGE_NAME)) {
       createToast(
         {
@@ -97,7 +106,6 @@ router.beforeEach((to, from, next) => {
         path: "/login",
       });
     } else {
-      // call api
       store.logined = true;
       store.userData = { name: "Tieng", age: "21" };
       next();

@@ -44,7 +44,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from "axios";
 const API_KEY = "741a751dc08240e382a20156223006";
@@ -61,7 +60,8 @@ export default {
     };
   },
   methods: {
-    fetchData: async function (params = this.textInput) {
+    fetchData: async function (params) {
+      params = this.textInput || params;
       if (!params) return;
       this.loading = true;
       try {

@@ -8,22 +8,24 @@
           {{ type }}
         </button>
       </div>
-      <TransitionGroup name="todos" tag="div" class="todolist" @drop="onDrop($event, 1)"   @dragover.prevent @dragenter.prevent  >
-        <div v-for="(todo, index) in todos" :key="index" :v-items="todo" :class="todo.status == 'done' ? 'todo done' : 'todo'" draggable @dragstart="startDrag($event, item)">
-          <div class="content">{{ todo.text }}</div>
-          <button :disabled="todo.status == 'done'" class="btn-edit" @click="editTodo(todo.id)"> Edit </button>
-          <button :disabled="todo.status == 'done'" class="btn-delete" @click="deleteTodo(todo.id)"> Delete </button>
-          <button class="btn-done" @click="doneTodo(todo.id)"> {{ todo.status !== "done" ? "Done" : "Undo" }} </button>
-          <div class="move">
-            <button :disabled="index == 0" class="up" @click="move(todo.id, -1)">
-              <ion-icon name="caret-up-outline"></ion-icon>
-            </button>
-            <button :disabled="index == todos.length - 1" class="down" @click="move(todo.id, 1)">
-              <ion-icon name="caret-down-outline"></ion-icon>
-            </button>
+      <Transition name="ballmove">
+        <div name="todos"  class="todolist" >
+          <div v-for="(todo, index) in todos" :key="index" :v-items="todo" :class="todo.status == 'done' ? 'todo done' : 'todo'" >
+            <div class="content">{{ todo.text }}</div>
+            <button :disabled="todo.status == 'done'" class="btn-edit" @click="editTodo(todo.id)"> Edit </button>
+            <button :disabled="todo.status == 'done'" class="btn-delete" @click="deleteTodo(todo.id)"> Delete </button>
+            <button class="btn-done" @click="doneTodo(todo.id)"> {{ todo.status !== "done" ? "Done" : "Undo" }} </button>
+            <div class="move">
+              <button :disabled="index == 0" class="up" @click="move(todo.id, -1)">
+                <ion-icon name="caret-up-outline"></ion-icon>
+              </button>
+              <button :disabled="index == todos.length - 1" class="down" @click="move(todo.id, 1)">
+                <ion-icon name="caret-down-outline"></ion-icon>
+              </button>
+            </div>
           </div>
         </div>
-      </TransitionGroup>
+      </Transition>
     </div>
   </div>
 </template>
@@ -105,17 +107,7 @@ export default {
       cloneTodos.sort((a, b) => a.order - b.order);
       this.todos = cloneTodos;
       this.saveToLocalStorage();
-    },
-    startDrag(evt, item) {
-      evt.dataTransfer.dropEffect = 'move'
-      evt.dataTransfer.effectAllowed = 'move'
-      evt.dataTransfer.setData('itemID', item.id)
-    },
-    onDrop(evt, list) {
-      const itemID = evt.dataTransfer.getData('itemID')
-      const item = this.items.find((item) => item.id == itemID)
-      item.list = list
-    },
+    }
   },
   beforeMount() {
     try {

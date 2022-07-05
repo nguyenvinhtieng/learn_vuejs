@@ -1,17 +1,27 @@
 <template>
   <header>
-    <router-link to="/"> Home </router-link>
-    <router-link to="/todoapp"> Todo App </router-link>
-    <router-link to="/password-validate"> Validate </router-link>
-    <router-link to="/weather"> Weather </router-link>
-    <router-link to="/post"> Post </router-link>
-    <router-link to="/login"> Login </router-link>
+    <div v-for="l in links" :key="l">
+      <router-link :to="l.link">{{ l.name }} </router-link>
+    </div>
   </header>
 </template>
 
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      links: [
+        { link: "/", name: "Home" },
+        { link: "/todoapp", name: "Todo App" },
+        { link: "/password-validate", name: "Validate" },
+        { link: "/weather", name: "Weather" },
+        { link: "/post", name: "Post" },
+        { link: "/news", name: "News" },
+        { link: "/login", name: "Login" },
+      ],
+    };
+  },
   beforeMount() {},
 };
 </script>

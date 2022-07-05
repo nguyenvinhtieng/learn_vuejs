@@ -1,5 +1,6 @@
 <template>
   <div class="post">
+    <Datepicker v-model="date"></Datepicker>
     <quill-editor
       :toolbar="toolbarOptions"
       @textChange="textChange"
@@ -15,21 +16,22 @@ export default {
   name: "Post",
   data() {
     return {
+      date: null,
       content: "",
       toolbarOptions: [
-        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["bold", "italic", "underline", "strike"],
         ["blockquote", "code-block"],
-        [{ header: 1 }, { header: 2 }], // custom button values
+        [{ header: 1 }, { header: 2 }],
         [{ list: "ordered" }, { list: "bullet" }],
-        [{ script: "sub" }, { script: "super" }], // superscript/subscript
-        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-        [{ direction: "rtl" }], // text direction
-        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+        [{ script: "sub" }, { script: "super" }],
+        [{ indent: "-1" }, { indent: "+1" }],
+        [{ direction: "rtl" }],
+        [{ size: ["small", false, "large", "huge"] }],
         [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        [{ color: [] }, { background: [] }],
         [{ font: [] }],
         [{ align: [] }],
-        ["clean"], // remove formatting button
+        ["clean"],
         ["image"],
       ],
     };
