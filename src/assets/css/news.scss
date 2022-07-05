@@ -121,3 +121,54 @@
   font-weight: bold;
   text-align: center;
 }
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.search__input {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  outline: none;
+}
+.search__btn {
+  padding: 10px 24px;
+  border: none;
+  outline: none;
+  transition: all 0.2s linear;
+}
+.search__btn.active {
+  color: white;
+  background-color: #3b79ff;
+}
+@media screen and (max-width: 500px) {
+  .news {
+    width: 98%;
+    box-sizing: border-box;
+  }
+  .search {
+    width: 100%;
+  }
+  .article__list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .pagination * {
+    font-size: 8px;
+  }
+  .pagination__item {
+    padding: 2px;
+  }
+  .pagination__page {
+    width: 20px;
+    height: 20px;
+  }
+}
